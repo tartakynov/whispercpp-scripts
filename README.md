@@ -47,9 +47,9 @@ To find the list of available audio capture device IDs, execute the `stream` bin
 Usage:
 - Just run the script, for example: `./stream.sh`
 
-#### Transcribing audio from speakers
+#### Transcribing audio from system output
 
-This script is also great for transcribing real-time audio from your speakers using [blackhole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver.
+You can also transcribe real-time audio from your system output using [blackhole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver.
 
 This is how it works
 ![Untitled-2023-11-12-1010](https://github.com/tartakynov/whispercpp-scripts/assets/946309/6cc1f3a4-26c9-4d50-a19c-c2f88ef633c6)
