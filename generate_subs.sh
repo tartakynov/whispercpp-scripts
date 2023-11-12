@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-source config.sh
+WHISPER_CPP_FOLDER=~/src/whisper.cpp/
+MODEL=large
 
 # Check if both input and output file locations are provided as arguments
 if [ $# -ne 2 ]; then
