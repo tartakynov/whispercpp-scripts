@@ -9,4 +9,5 @@ AUDIO_CAPTURE_DEVICE_ID=3
   --capture "$AUDIO_CAPTURE_DEVICE_ID" \
   --threads 8 \
   --step 500 \
-  --length 5000
+  --length 5000 \
+  --keep-context
