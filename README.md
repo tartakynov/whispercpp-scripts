@@ -1,41 +1,42 @@
-# Whisper.cpp Script
+# whisper.cpp scripts
 
-Below are my scripts to work with the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) project, a C++ implementation of OpenAI's Whisper model.
+These are scripts to work with the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) project, which is a C++ implementation of OpenAI's Whisper model.
 
-These scripts automate the process of extracting audio from videos and generating subtitles using the whisper.cpp, and transcribing real-time audio.
-
-Instructions are tailored for Apple Silicon devices.
+The purpose of these scripts is to simplify the process of extracting audio from videos in the format required by whisper.cpp, generating subtitles, and transcribing real-time audio using whisper.cpp. These instructions are specifically designed for Apple Silicon devices.
 
 ## Getting Started
 
-- Clone the whisper.cpp repository and build it with Core ML support according to its instructions
-- Download the desired ggml models and convert them to Core ML models following the instructions in whisper.cpp.
+1. Clone the whisper.cpp repository and build it with Core ML support by following its provided instructions.
+2. Download the necessary ggml models and convert them to Core ML models as directed in the whisper.cpp documentation.
 
-## Audio extraction from video
+## Audio Extraction from Video
 
-First, ensure that `ffmpeg` is installed for audio extraction.Run `brew install ffmpeg` to install `ffmpeg` with Homebrew.
+Ensure `ffmpeg` is installed for audio extraction. Use Homebrew to install it by running `brew install ffmpeg`.
 
-**extract_audio.sh** script extracts the audio track from a video file in the format that is required for whisper.cpp. Usage:
-  - Run the script with two arguments: the input video file and the output audio file.
-  - Example: `./extract_audio.sh input_video.mp4 output_audio.wav`
+### Using `extract_audio.sh`
+This script extracts the audio track from a video file in a format compatible with whisper.cpp.
 
-## Generate subtitles from an audio file
+**Usage:**
+- Execute the script with two arguments: the input video file and the output audio file.
+- For example: `./extract_audio.sh input_video.mp4 output_audio.wav`
 
-**generate_subs.sh** script uses whisper.cpp to generate subtitles from an audio file. Before using it, first make sure set the location of whisper.cpp and the desired model in the script.
+## Generating Subtitles from an Audio File
 
-Usage:
-  - Run the script with two arguments: the input audio file and the output SRT file.
-  - Example: `./generate_subs.sh input_audio.wav subtitles.srt`
+### Using `generate_subs.sh`
+This script uses whisper.cpp to create subtitles from an audio file. Before usage, configure the script with the location of your whisper.cpp installation and the desired model.
 
-## Transcribe real-time audio
+**Usage:**
+- Run the script with two arguments: the input audio file and the output SRT file.
+- For example: `./generate_subs.sh input_audio.wav subtitles.srt`
 
-**stream.sh** script transcribes real-time audio from an audio capturing device.
+## Transcribing Real-Time Audio
 
-Before using it, first set the location of whisper.cpp, the desired model and audio capturing device in the script. Also, make sure that you compiled the
-`stream` tool in whisper.cpp according to its instructions.
+### Using `stream.sh`
+The `stream.sh` runs whisper.cpp to transcribe audio in real-time from an audio capture device.
 
-To see the list of audio capture device ids, run the `stream` binary in whisper.cpp, it will list the allowed devices.
+Before usage, update the script with the location of your whisper.cpp installation, the chosen model, and the audio capturing device. Also, ensure that you have compiled the `stream` tool in whisper.cpp following its instructions.
 
-Usage:
-  - Run the script with two arguments: the input audio file and the output SRT file.
-  - Example: `./generate_subs.sh input_audio.wav subtitles.srt`
+To find the list of available audio capture device IDs, execute the `stream` binary within whisper.cpp; it will display the supported devices.
+
+**Usage:**
+- Just run the script, for example: `./stream.sh`
