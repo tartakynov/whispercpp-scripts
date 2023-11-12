@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 WHISPER_CPP_FOLDER=~/src/whisper.cpp/
-MODEL=base.en
+MODEL=small.en
 AUDIO_CAPTURE_DEVICE_ID=3
 
 "$WHISPER_CPP_FOLDER"/stream \
