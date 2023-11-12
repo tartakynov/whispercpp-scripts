@@ -9,37 +9,45 @@ The purpose of these scripts is to simplify the process of extracting audio from
 1. Clone the whisper.cpp repository and build it with Core ML support by following its provided instructions.
 2. Download the necessary ggml models and convert them to Core ML models as directed in the whisper.cpp documentation.
 
-## Audio Extraction from Video
+## Audio extraction
 
-Ensure `ffmpeg` is installed for audio extraction. Use Homebrew to install it by running `brew install ffmpeg`.
+**`extract_audio.sh`**
 
-### Using `extract_audio.sh`
-This script extracts the audio track from a video file in a format compatible with whisper.cpp.
+This script extracts the audio track from a video file in a format compatible with whisper.cpp. Ensure `ffmpeg` is installed for audio extraction. Use Homebrew to install it by running `brew install ffmpeg`.
 
-**Usage:**
+Usage:
 - Execute the script with two arguments: the input video file and the output audio file.
 - For example: `./extract_audio.sh input_video.mp4 output_audio.wav`
 
-## Generating Subtitles from an Audio File
+## Generating subtitles
 
-### Using `generate_subs.sh`
+**`generate_subs.sh`**
+
 This script uses whisper.cpp to create subtitles from an audio file. Before usage, configure the script with the location of your whisper.cpp installation and the desired model.
 
-**Usage:**
+Usage:
 - Run the script with two arguments: the input audio file and the output SRT file.
 - For example: `./generate_subs.sh input_audio.wav subtitles.srt`
 
-## Transcribing Real-Time Audio
+## Real-time transcribing
 
-### Using `stream.sh`
-The `stream.sh` runs whisper.cpp to transcribe audio in real-time from an audio capture device.
+**`stream.sh`**
 
-Before usage, update the script with the location of your whisper.cpp installation, the chosen model, and the audio capturing device. Also, ensure that you have compiled the `stream` tool in whisper.cpp following its instructions.
+This script relies on whisper.cpp's `stream` binary to transcribe audio in real-time from an audio capture device. 
+
+If you're on Apple Silicon device, you can compile whisper.cpp's `stream` with Core ML support for better performance. Run the following in your whisper.cpp folder
+```sh
+WHISPER_COREML=1 make stream -j
+```
+
+Before usage, update the script with the location of your whisper.cpp installation, the chosen model, and the audio capturing device. Also, ensure that you have compiled the `stream` tool in whisper.cpp.
 
 To find the list of available audio capture device IDs, execute the `stream` binary within whisper.cpp; it will display the supported devices.
 
-**Usage:**
+Usage:
 - Just run the script, for example: `./stream.sh`
+
+#### Transcribing audio from speakers
 
 This script is also great for transcribing real-time audio from your speakers using [blackhole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver.
 
