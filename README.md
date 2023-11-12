@@ -2,9 +2,11 @@
 
 These are scripts to work with the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) project, which is a C++ implementation of OpenAI's Whisper model.
 
-The purpose of these scripts is to simplify the process of extracting audio from videos in the format required by whisper.cpp, generating subtitles, and transcribing real-time audio using whisper.cpp. These instructions are specifically designed for Apple Silicon devices.
+The purpose of these scripts is to simplify the process of extracting audio from videos in the format required by whisper.cpp, generating subtitles, and transcribing real-time audio using whisper.cpp. 
 
 ## Getting Started
+
+You can skip the Core ML part for non-Apple Silicon devices.
 
 1. Clone the whisper.cpp repository and build it with Core ML support by following its provided instructions.
 2. Download the necessary ggml models and convert them to Core ML models as directed in the whisper.cpp documentation.
