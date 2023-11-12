@@ -8,6 +8,4 @@ AUDIO_CAPTURE_DEVICE_ID=3
   -m "$WHISPER_CPP_FOLDER/models/ggml-$MODEL.bin" \
   --capture "$AUDIO_CAPTURE_DEVICE_ID" \
   --threads 8 \
-  --step 500 \
-  --length 5000 \
   --keep-context
