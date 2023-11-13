@@ -1,8 +1,6 @@
 # whisper.cpp scripts
 
-These are scripts to work with the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) project, which is a C++ implementation of OpenAI's Whisper model.
-
-The purpose of these scripts is to simplify the process of extracting audio from videos in the format required by whisper.cpp, generating subtitles, and transcribing real-time audio using whisper.cpp. 
+In this repo I openly store my scripts I use with [whisper.cpp](https://github.com/ggerganov/whisper.cpp), which is a C++ implementation of OpenAI's Whisper model. The idea is to have a handy, easy-to-follow reference for those times when I need to circle back to using whisper.cpp after a while.
 
 ## Getting Started
 
@@ -51,12 +49,16 @@ Usage:
 
 #### Transcribing audio from system output
 
-You can also transcribe real-time audio from your system output using [blackhole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver.
+You can also transcribe live audio straight from your system's output using [BlackHole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver. 
 
 This is how it works
-![Untitled-2023-11-12-1010](https://github.com/tartakynov/whispercpp-scripts/assets/946309/6cc1f3a4-26c9-4d50-a19c-c2f88ef633c6)
+![Visual Guide](https://github.com/tartakynov/whispercpp-scripts/assets/946309/6cc1f3a4-26c9-4d50-a19c-c2f88ef633c6)
 
-A little demo of transcribing real-time audio from the browser (turn on the sound 🔊)
+What you need to do:
+1. Open the Audio MIDI Setup utility on your MacOS and create a Multi-Output Device. Make sure to include your preferred speakers and BlackHole as your output devices.
+2. Then, select this new Multi-Output Device as your sound output.
+3. Finally, specify BlackHole as the audio capture device for whisper.cpp.
+
+A quick demo showing transcribing real-time audio from your browser. Don't forget to turn up the volume! 🔊
 
 [demo.webm](https://github.com/tartakynov/whispercpp-scripts/assets/946309/f821354e-2e1f-45c8-947f-025e2a4b244d)
-
