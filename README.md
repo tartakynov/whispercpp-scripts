@@ -12,7 +12,7 @@ You can skip the Core ML part for non-Apple Silicon devices.
    git submodule update
    ```
 2. Build it with Core ML support by following its provided instructions.
-3. Download the necessary ggml models and convert them to Core ML models as directed in the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) documentation.
+3. Download the necessary ggml models with the download script `./download.sh <model>`
 
 ## Audio extraction
 
@@ -31,8 +31,8 @@ Usage:
 This script uses whisper.cpp to create subtitles from an audio file. Before usage, configure the script with the location of your whisper.cpp installation and the desired model.
 
 Usage:
-- Run the script with two arguments: the input audio file and the output SRT file.
-- For example: `./generate_subs.sh input_audio.wav subtitles.srt`
+- Run the script with three arguments: the model, the input audio file and the output SRT file.
+- For example: `./generate_subs.sh small.en input_audio.wav subtitles.srt`
 
 ## Real-time transcribing
 
@@ -50,7 +50,8 @@ Before usage, update the script with the location of your whisper.cpp installati
 To find the list of available audio capture device IDs, execute the `stream` binary within whisper.cpp; it will display the supported devices.
 
 Usage:
-- Just run the script, for example: `./stream.sh`
+- Run the script with one arguments: the model.
+- For example: `./stream.sh small.en`
 
 #### Transcribing audio from system output
 

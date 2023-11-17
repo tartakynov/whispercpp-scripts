@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
-WHISPER_CPP_FOLDER=./whisper.cpp
-MODEL=small.en
 AUDIO_CAPTURE_DEVICE_ID=3
 
-"$WHISPER_CPP_FOLDER"/stream \
-  -m "$WHISPER_CPP_FOLDER/models/ggml-$MODEL.bin" \
+# Function to display usage information
+usage() {
+    echo "Usage: $0 [model]"
+}
+
+# Check if no arguments were provided
+if [ $# -eq 0 ]; then
+    usage
+    exit 1
+fi
+
+./whisper.cpp/stream \
+  -m "./whisper.cpp/models/ggml-$1.bin" \
   --capture "$AUDIO_CAPTURE_DEVICE_ID" \
   --threads 8 \
   --keep-context
