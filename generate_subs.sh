@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WHISPER_CPP_FOLDER=~/src/whisper.cpp/
+WHISPER_CPP_FOLDER=./whisper.cpp
 MODEL=large
 
 # Check if both input and output file locations are provided as arguments

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WHISPER_CPP_FOLDER=~/src/whisper.cpp/
+WHISPER_CPP_FOLDER=./whisper.cpp
 MODEL=small.en
 AUDIO_CAPTURE_DEVICE_ID=3
 

@@ -6,8 +6,13 @@ In this repo I openly store my scripts I use with [whisper.cpp](https://github.c
 
 You can skip the Core ML part for non-Apple Silicon devices.
 
-1. Clone the whisper.cpp repository and build it with Core ML support by following its provided instructions.
-2. Download the necessary ggml models and convert them to Core ML models as directed in the whisper.cpp documentation.
+1. Run the following to clone [whisper.cpp](https://github.com/ggerganov/whisper.cpp) repository
+   ```
+   git submodule init
+   git submodule update
+   ```
+2. Build it with Core ML support by following its provided instructions.
+3. Download the necessary ggml models and convert them to Core ML models as directed in the [whisper.cpp](https://github.com/ggerganov/whisper.cpp) documentation.
 
 ## Audio extraction
 
@@ -33,7 +38,7 @@ Usage:
 
 **`stream.sh`**
 
-This script relies on whisper.cpp's `stream` binary to transcribe audio in real-time from an audio capture device. 
+This script relies on whisper.cpp's `stream` binary to transcribe audio in real-time from an audio capture device.
 
 If you're on Apple Silicon device, you can compile whisper.cpp's `stream` with Core ML support for better performance. Run the following in your whisper.cpp folder
 ```sh
@@ -49,7 +54,7 @@ Usage:
 
 #### Transcribing audio from system output
 
-You can also transcribe live audio straight from your system's output using [BlackHole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver. 
+You can also transcribe live audio straight from your system's output using [BlackHole](https://github.com/ExistentialAudio/BlackHole) audio loopback driver.
 
 This is how it works
 ![Visual Guide](https://github.com/tartakynov/whispercpp-scripts/assets/946309/6cc1f3a4-26c9-4d50-a19c-c2f88ef633c6)
