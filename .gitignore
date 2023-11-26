@@ -2,3 +2,4 @@
 .idea
 whisper.cpp
 models
+data
