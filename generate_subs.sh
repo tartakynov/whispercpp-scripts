@@ -1,16 +1,27 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Check if both input and output file locations are provided as arguments
-if [ $# -ne 3 ]; then
-    echo "Usage: $0 <model> <input_audio_file> <output_srt_file>"
+if [[ $# -ne 4 ]]; then
+    echo "Error: Incorrect number of arguments."
+    echo "Usage: $0 <model> <lang> <input_audio_file> <output_srt_file>"
     exit 1
 fi
 
-# Generate the srt file with whisper.cpp
+model=$1
+language=$2
+input_file=$3
+output_file=$4
+
+additional_args=""
+if [[ "$language" != "en" ]]; then
+  additional_args="--translate"
+fi
+
 ./whisper.cpp/main \
   --threads 8 \
-  --model "./whisper.cpp/models/ggml-$1.bin" \
-  --file "$2" \
+  --model "./whisper.cpp/models/ggml-${model}.bin" \
+  --file "$input_file" \
   --output-srt \
-  --output-file "$3" \
-  --print-colors
+  --output-file "$output_file" \
+  --language "$language" \
+  --print-colors \
+  $additional_args
