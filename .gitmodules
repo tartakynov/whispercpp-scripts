@@ -1,3 +1,6 @@
 [submodule "whisper.cpp"]
 	path = whisper.cpp
 	url = https://github.com/ggerganov/whisper.cpp
+[submodule "whisper"]
+	path = whisper
+	url = git@github.com:openai/whisper.git
