@@ -14,6 +14,29 @@ You can skip the Core ML part for non-Apple Silicon devices.
 2. Build it with Core ML support by following its provided instructions.
 3. Download the necessary ggml models with the download script `./download.sh <model>`
 
+## Build whisper.cpp models from HuggingFace
+
+1. Set model name and path
+   ```
+   MODEL_NAME=small.ru
+   MODEL_PATH=erlandekh/whisper-small-russian
+   ```
+2. Patch `models/convert-h5-to-coreml.py` to allow your model name
+3. Go to whisper.cpp folder and activate VirtualEnv
+   ```
+   cd whisper.cpp
+   source venv/bin/activate
+   ```
+4. Download and convert the HuggingFace model to CoreML
+   ```
+   models/generate-coreml-model.sh -h5 ${MODEL_NAME} ${MODEL_PATH}
+   ```
+5. Convert the downloaded model to ggml
+   ```
+   python models/convert-pt-to-ggml.py models/hf-${MODEL_NAME}.pt ../whisper/ models/
+   mv models/ggml-model.bin models/ggml-${MODEL_NAME}.bin
+   ```
+
 ## Audio extraction
 
 **`extract_audio.sh`**
