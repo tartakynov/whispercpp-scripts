@@ -33,8 +33,8 @@ You can skip the Core ML part for non-Apple Silicon devices.
    ```
 5. Convert the downloaded model to ggml
    ```
-   python models/convert-pt-to-ggml.py models/hf-${MODEL_NAME}.pt ../whisper/ models/
-   mv models/ggml-model.bin models/ggml-${MODEL_NAME}.bin
+   python models/convert-pt-to-ggml.py models/hf-${MODEL_NAME}.pt ../whisper/ models/ use-f32
+   mv models/ggml-model-f32.bin models/ggml-${MODEL_NAME}.bin
    ```
 
 ## Audio extraction
