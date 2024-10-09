@@ -16,7 +16,7 @@ cd whisper.cpp
 ./models/download-ggml-model.sh $1
 
 python3 -m venv venv
-pip install ane_transformers openai-whisper coremltools
 source venv/bin/activate
+pip3 install -U ane_transformers openai-whisper coremltools
 
 ./models/generate-coreml-model.sh $1
